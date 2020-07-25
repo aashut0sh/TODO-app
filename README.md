@@ -1,5 +1,3 @@
-# TODO-app
-This is a todo app made using Express EJS &amp; mongoDB(mongooose).
 <h1> TODO app </h1>
 This is basic to do list app which is built upon nodejs. Tech Stack involved : HTML,CSS, JS, Node.js, Express.js, EJS templating engine, MongoDB.
 
