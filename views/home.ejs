@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>
+    <%= title %>
+    
+</title>
+<script src="https://kit.fontawesome.com/41c8fb69c7.js" crossorigin="anonymous"></script> 
+<link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  
+     <div id="outer">
+      <!-- main heading -->
+      <h1 id="heading">
+        <i class="fas fa-clipboard-list"></i>
+        TODO 
+      </h1>
+        <!-- form for the data to be filled -->
+      <form action="/create" method="POST">
+        <label for="f1" id="d1">Description..</label><br>
+        <input type="text" id="f1" name="description" required placeholder="Hey! Lets pUsh iT!!" >
+        <label for="f2" id="d2">Due Date</label><br>
+        <input type="date" name="date" required id="f2">
+        <label for="f3" id="d3">CATEGORY</label>
+        <br>
+        <!-- dropdown -->
+        <select id="f3" name="category"  required>
+          <option value="1" selected disabled> Choose a Category </option>
+          <option value="personal">Personal</option>
+          <option value="school">School</option>
+          <option value="work" selected>Work</option>
+          <option value="cleaning">Cleaning</option>
+          <option value="others">Others</option>
+        </select>
+          <!-- add-button -->
+           <div id="add-button-div">
+                <button id="add-button"> <i class="fas fa-plus" id="plus"></i> ADD TASK </button>
+                </div>
+       </form>
+       <!-- presenting all the task -->
+          <% for(let i of todoList){ %>
+             <div id="checkbox_outer">
+               <div id="for_hover" class="cross">
+              <input type="checkbox" value= "<%= i._id %>" > 
+              <span id="des" class="cross2"><%= i.description %> </span><br>
+              <span id="calc" class="cross3">
+              <i class="fas fa-calendar-alt" id="calendar"></i>
+              <%= i.date.toDateString() %>
+            </span>
+                <span id="cat"> <%=i.category%> </span>
+               </div>
+             </div>
+           <% }%>
+           <!-- delete button -->
+           <div id="delete-button-div">
+            <button id="delete-button"><i class="fas fa-trash" id="trash"></i> DELETE</button>
+           </div>
+     </div>
+     <!-- for jqurey -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <!-- for javascript file -->
+     <script type="text/javascript" src="/indexJ.js"></script>
+</body>
+</html>
